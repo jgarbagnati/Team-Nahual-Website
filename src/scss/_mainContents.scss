@@ -1,3 +1,36 @@
 .main-cntr {
-	background-color: $secondary-color-layout;
+	color: $primary-color-font;
+	
+	margin-top: -200px;
+	padding: 0px 20%;
+	
+	.juanito-logo {
+		margin-left: calc(50% - 155px);
+		width: 310px;
+		height: 163px;
+		background-image: url("../res/logo/juanito-logo-white.png");
+		background-size: cover;
+		margin-bottom: 10px;
+	}
+	
+	.logo-subtext {
+		width: 100%;
+		text-align: center;
+		font-size: 20px;
+		font-family: $primary-font;
+		text-transform: uppercase;
+	}
+	
+	.divider-bar {
+		height: 3px;
+		margin: 20px 0px;
+		background-color: lighten($primary-color-layout, 25%);
+	}
+	
+	.text {
+		font-family: $secondary-font;
+		text-align: center;
+		padding: 0 20px;
+	}
 }
+
