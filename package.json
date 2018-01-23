@@ -8,8 +8,7 @@
     "build-production": "npm run build-sass && webpack && npm run copy-res",
     "webpack": "webpack --config webpack.config.dev.js",
     "build-sass": "node-sass --include-path scss ./src/index.scss ./build/css/index.css --output-style compressed",
-    "copy-res": "cp -a ./src/res/. ./build/res/",
-	"deploy": "rm -r ./docs/ && cp -a ./build/ ./docs/"
+    "copy-res": "cp -a ./src/res/. ./build/res/"
   },
   "repository": {
     "type": "git",
