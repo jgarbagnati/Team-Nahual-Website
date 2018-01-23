@@ -16,7 +16,7 @@
 	.logo-subtext {
 		width: 100%;
 		text-align: center;
-		font-size: 20px;
+		font-size: 24px;
 		font-family: $primary-font;
 		text-transform: uppercase;
 	}
@@ -31,6 +31,49 @@
 		font-family: $secondary-font;
 		text-align: center;
 		padding: 0 20px;
+	}
+	
+	.social-media-cntr {
+		text-align: center;
+		margin-top: -10px;
+		margin-bottom: 20px;
+		
+		div {
+			display: inline-block;
+			font-style: italic;
+		}
+		
+		.media-text {
+			font-family: $secondary-font;
+			color: $secondary-color-font;
+			font-size: 20px;
+			height: 32px;
+			cursor: default;
+			user-select: none;
+		}
+		
+		.twitter  {background-image: url("../res/icons/twitter.png");}
+		.facebook {background-image: url("../res/icons/facebook.png");}
+		.youtube  {background-image: url("../res/icons/youtube.png");}
+		
+		.media-ico {
+			height: 32px;
+			width: 32px;
+			margin-bottom: -18px;
+			margin-left: 16px;
+			padding: 8px;
+			border-radius: 5px;
+			
+			cursor: pointer;
+			
+			background-repeat: no-repeat, repeat;
+			background-size: 32px 32px;
+			background-position: center center;
+			
+			&:hover {
+				background-color: lighten($primary-color-layout, 50%);
+			}
+		}
 	}
 }
 

@@ -21,9 +21,9 @@ export default class MainContents extends Component {
 				
 				<div className='social-media-cntr'>
 					<div className='media-text'> Follow development at: </div>
-					<div className='twitter' />
-					<div className='facebook' />
-					<div className='youtube' />
+					<div className='media-ico twitter' />
+					<div className='media-ico facebook' />
+					<div className='media-ico youtube' />
 				</div>
 			</div>
 		);
