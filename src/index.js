@@ -17,9 +17,9 @@ export default class Index extends Component {
 		return (
 			<div id='inferno-root'>
 				<link rel="stylesheet" type="text/css" href={"css/" + this.state.stylesheet + ".css"} />
-				<NavbarTop />
 				<Parallax />
 				<MainContents />
+				<NavbarTop />
 			</div>
 		);
 	}
