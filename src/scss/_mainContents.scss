@@ -2,7 +2,7 @@
 	color: $primary-color-font;
 	
 	margin-top: -200px;
-	padding: 0px 20%;
+	padding: 0px calc(50% - 300px);
 	
 	.juanito-logo {
 		margin-left: calc(50% - 155px);
@@ -29,8 +29,12 @@
 	
 	.text {
 		font-family: $secondary-font;
-		text-align: center;
+		text-align: justify;
 		padding: 0 20px;
+	}
+	
+	.description {
+		font-size: 20px;
 	}
 	
 	.social-media-cntr {
