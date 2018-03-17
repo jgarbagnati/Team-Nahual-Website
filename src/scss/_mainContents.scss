@@ -30,11 +30,44 @@
 	.text {
 		font-family: $secondary-font;
 		text-align: justify;
-		padding: 0 20px;
 	}
 	
 	.description {
 		font-size: 20px;
+	}
+	
+	.options {
+		margin-top: -10px;
+		margin-bottom: 10px;
+		
+		div {
+			display: inline-block;
+			width: 100px;
+			margin-left: 75px;
+			padding: 10px 0px;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+			color: $secondary-color-font;
+			
+			&.selected, &:hover {
+				color: $primary-color-font;
+			}
+		}
+	}
+	
+	.platforms {
+		display: block;
+		font-family: $secondary-font;
+		text-align: center;
+		
+		span {
+			display: block;
+			font-size: 20px;
+			margin: 10px 0px;
+		}
 	}
 	
 	.social-media-cntr {
