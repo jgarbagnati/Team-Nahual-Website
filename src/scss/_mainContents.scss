@@ -2,7 +2,7 @@
 	color: $primary-color-font;
 	
 	margin-top: -200px;
-	padding: 0px 20%;
+	padding: 0px calc(50% - 300px);
 	
 	.juanito-logo {
 		margin-left: calc(50% - 155px);
@@ -29,8 +29,51 @@
 	
 	.text {
 		font-family: $secondary-font;
+		text-align: justify;
+	}
+	
+	.description {
+		font-size: 20px;
+	}
+	
+	.options {
+		margin-top: -10px;
+		margin-bottom: 10px;
+		
+		div {
+			display: inline-block;
+			width: 100px;
+			margin-left: 75px;
+			padding: 10px 0px;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+			color: $secondary-color-font;
+			user-select: none;
+			
+			&.selected, &:hover {
+				color: $primary-color-font;
+			}
+		}
+	}
+	
+	.platforms {
+		margin-top: 10px;
+		margin-bottom: 30px;
+		display: block;
+		font-family: $secondary-font;
 		text-align: center;
-		padding: 0 20px;
+		font-size: 20px;
+		cursor: default;
+		user-select: none;
+		
+		span {
+			color: $secondary-color-font;
+			font-style: italic;
+			margin-right: 17px;
+		}
 	}
 	
 	.social-media-cntr {
