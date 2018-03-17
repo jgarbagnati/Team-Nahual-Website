@@ -71,8 +71,7 @@ export default class MainContents extends Component {
 				<div className='divider-bar' />
 				
 				<div className='platforms'>
-					Will be available to play on
-					<span> Windows • Mac • Linux </span>
+					<span>Will be available to play on: </span> Windows • Mac • Linux
 				</div>
 				
 				<div className='social-media-cntr'>
