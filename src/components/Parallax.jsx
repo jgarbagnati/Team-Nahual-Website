@@ -7,6 +7,7 @@ export default class Parallax extends Component {
 		return (
 			<div className='parallax-cntr'>
 				<div className='image' />
+				<div className='vignette' />
 				<div className='fade-in-gradient' />
 			</div>
 		);
