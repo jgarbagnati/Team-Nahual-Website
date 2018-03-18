@@ -2,18 +2,26 @@ import {Component} from 'inferno';
 import {NavLink} from 'inferno-router';
 
 export default class NavbarTop extends Component {
+	constructor(props) {
+		super(props);
+		this.refresh = this.refresh.bind(this);
+	}
+	
+	refresh() {
+		this.props.update();
+	}
 	
 	render() {
 		return (
 			<div className='navbar-top'>
 				<div className='left'>
 					<NavLink to="/" exact activeClassName="active">
-						<div className='team-nahual option'>Team Nahual</div>
+						<div onclick={this.refresh} className='team-nahual option'>Team Nahual</div>
 					</NavLink>
 				</div>
 				<div className='right'>
 					<NavLink to="/juanito" activeClassName="active">
-						<div className='option'>Juanito el Nahualito</div>
+						<div onclick={this.refresh} className='option'>Juanito el Nahualito</div>
 					</NavLink>
 					<div className='option'>
 						Development Blog
