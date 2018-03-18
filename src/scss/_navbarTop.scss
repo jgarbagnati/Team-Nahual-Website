@@ -7,14 +7,8 @@
 	
 	.left {
 		float: left;
-		
-		.team-nahual {
-			&:before {
-				content: 'Team Nahual';
-				text-transform: uppercase;
-				font-weight: black;
-			}
-		}
+		text-transform: uppercase;
+		font-weight: black;
 	}
 	
 	.right {
