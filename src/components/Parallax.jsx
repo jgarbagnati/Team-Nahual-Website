@@ -1,5 +1,4 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import {Component} from 'inferno';
 
 export default class Parallax extends Component {
 	

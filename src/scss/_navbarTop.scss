@@ -7,14 +7,8 @@
 	
 	.left {
 		float: left;
-		
-		.team-nahual {
-			&:before {
-				content: 'Team Nahual';
-				text-transform: uppercase;
-				font-weight: black;
-			}
-		}
+		text-transform: uppercase;
+		font-weight: black;
 	}
 	
 	.right {
@@ -37,9 +31,9 @@
 		&:hover {
 			background-color: lighten($primary-color-layout, 25%);
 		}
-		
-		&.active {
-			background-color: lighten($primary-color-layout, 50%);
-		}
+	}
+	
+	.active .option {
+		background-color: lighten($primary-color-layout, 50%);
 	}
 }
