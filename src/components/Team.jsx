@@ -30,6 +30,24 @@ const members = [{
 	},{
 		name: "Alejandro Morales Maldonado",
 		role: "Environment Artist"
+	},{
+		name: "Reshma Zachariah",
+		role: "Lead 2D Artist"
+	},{
+		name: "Andrea Guyette",
+		role: "2D and 3D Artist"
+	},{
+		name: "Collette Quach",
+		role: "Writing"
+	},{
+		name: "Gian Paredes",
+		role: "Artist"
+	},{
+		name: "Herman Wu",
+		role: "Artist"
+	},{
+		name: "Nagie Khant",
+		role: "Artist"
 	}
 ];
 
