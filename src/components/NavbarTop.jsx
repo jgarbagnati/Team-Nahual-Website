@@ -15,11 +15,12 @@ export default class NavbarTop extends Component {
 		return (
 			<div className='navbar-top'>
 				<div className='left'>
-					<NavLink to="/" exact activeClassName="active">
-						<div onclick={this.refresh} className='team-nahual option'>Team Nahual</div>
-					</NavLink>
+					<div className='team-nahual option'>Team Nahual</div>
 				</div>
 				<div className='right'>
+					<NavLink to="/" exact activeClassName="active">
+						<div onclick={this.refresh} className='option'>Home</div>
+					</NavLink>
 					<NavLink to="/juanito" activeClassName="active">
 						<div onclick={this.refresh} className='option'>Juanito el Nahualito</div>
 					</NavLink>
