@@ -1481,9 +1481,9 @@ var _NavbarTop = __webpack_require__(21);
 
 var _NavbarTop2 = _interopRequireDefault(_NavbarTop);
 
-var _Home = __webpack_require__(22);
+var _Team = __webpack_require__(22);
 
-var _Home2 = _interopRequireDefault(_Home);
+var _Team2 = _interopRequireDefault(_Team);
 
 var _Juanito = __webpack_require__(23);
 
@@ -1525,18 +1525,14 @@ var Index = function (_Component) {
 		key: 'render',
 		value: function render() {
 			return (0, _inferno.createComponentVNode)(2, _infernoRouter.HashRouter, {
-				children: (0, _inferno.createVNode)(1, 'div', null, [(0, _inferno.createVNode)(1, 'link', null, null, 1, {
-					'rel': 'stylesheet',
-					'type': 'text/css',
-					'href': "css/" + this.state.stylesheet + ".css"
-				}), (0, _inferno.createComponentVNode)(2, _infernoRouter.Switch, {
+				children: (0, _inferno.createVNode)(1, 'div', null, [(0, _inferno.createComponentVNode)(2, _infernoRouter.Switch, {
 					children: [(0, _inferno.createComponentVNode)(2, _infernoRouter.Route, {
 						'exact': true,
 						'path': '/',
-						'component': _Home2.default
-					}), (0, _inferno.createComponentVNode)(2, _infernoRouter.Route, {
-						'path': '/juanito',
 						'component': _Juanito2.default
+					}), (0, _inferno.createComponentVNode)(2, _infernoRouter.Route, {
+						'path': '/about-us',
+						'component': _Team2.default
 					})]
 				}), (0, _inferno.createComponentVNode)(2, _NavbarTop2.default, {
 					'update': this.update
@@ -5252,17 +5248,23 @@ var NavbarTop = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return (0, _inferno.createVNode)(1, 'div', 'navbar-top', [(0, _inferno.createVNode)(1, 'div', 'left', (0, _inferno.createComponentVNode)(2, _infernoRouter.NavLink, {
+			return (0, _inferno.createVNode)(1, 'div', 'navbar-top', [(0, _inferno.createVNode)(1, 'div', 'left', (0, _inferno.createComponentVNode)(2, _infernoRouter.Link, {
 				'to': '/',
 				'exact': true,
-				'activeClassName': 'active',
 				children: (0, _inferno.createVNode)(1, 'div', 'team-nahual option', (0, _inferno.createTextVNode)('Team Nahual'), 2, {
 					'onclick': this.refresh
 				})
 			}), 2), (0, _inferno.createVNode)(1, 'div', 'right', [(0, _inferno.createComponentVNode)(2, _infernoRouter.NavLink, {
-				'to': '/juanito',
+				'to': '/',
+				'exact': true,
 				'activeClassName': 'active',
 				children: (0, _inferno.createVNode)(1, 'div', 'option', (0, _inferno.createTextVNode)('Juanito el Nahualito'), 2, {
+					'onclick': this.refresh
+				})
+			}), (0, _inferno.createComponentVNode)(2, _infernoRouter.NavLink, {
+				'to': '/about-us',
+				'activeClassName': 'active',
+				children: (0, _inferno.createVNode)(1, 'div', 'option', (0, _inferno.createTextVNode)('Meet the Team'), 2, {
 					'onclick': this.refresh
 				})
 			}), (0, _inferno.createVNode)(1, 'div', 'option', (0, _inferno.createTextVNode)('Development Blog'), 2)], 4)], 4);
@@ -5295,26 +5297,93 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Home = function (_Component) {
-	_inherits(Home, _Component);
+var members = [{
+	name: "Hesi Mendez",
+	role: "Lead Game Designer"
+}, {
+	name: "Jacob Weidner",
+	role: "Producer"
+}, {
+	name: "Ozvaldo Membrila",
+	role: "Narrative, Level Design"
+}, {
+	name: "Chris Huynh",
+	role: "Engineering CoLead"
+}, {
+	name: "James Garbagnati",
+	role: "Engineering CoLead"
+}, {
+	name: "Jude Loren",
+	role: "Lead Tech Artist"
+}, {
+	name: "Jonathan Morales",
+	role: "Lead Sound Designer, Tech Artist"
+}, {
+	name: "Alexandra Winters",
+	role: "3D Art Lead, Character Design"
+}, {
+	name: "Juan Castillo Meija",
+	role: "3D Art Lead, Environment Artist"
+}, {
+	name: "Alejandro Morales Maldonado",
+	role: "Environment Artist"
+}, {
+	name: "Reshma Zachariah",
+	role: "Lead 2D Artist"
+}, {
+	name: "Andrea Guyette",
+	role: "2D and 3D Artist"
+}, {
+	name: "Collette Quach",
+	role: "Writing"
+}, {
+	name: "Gian Paredes",
+	role: "Artist"
+}, {
+	name: "Herman Wu",
+	role: "Artist"
+}, {
+	name: "Nagie Khant",
+	role: "Artist"
+}];
 
-	function Home(props) {
-		_classCallCheck(this, Home);
+var Team = function (_Component) {
+	_inherits(Team, _Component);
 
-		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+	function Team(props) {
+		_classCallCheck(this, Team);
+
+		return _possibleConstructorReturn(this, (Team.__proto__ || Object.getPrototypeOf(Team)).call(this, props));
 	}
 
-	_createClass(Home, [{
-		key: 'render',
+	_createClass(Team, [{
+		key: "displayMembers",
+		value: function displayMembers() {
+			var team = [];
+			for (var i = 0; i < members.length; ++i) {
+				var member = members[i];
+				var img = member.img != null ? member.img : "placeholder";
+				var style = {
+					backgroundImage: "url('./res/team/photo/" + img + ".png')"
+				};
+				team.push((0, _inferno.createVNode)(1, "div", "member", [(0, _inferno.createVNode)(1, "div", "avatar", null, 1, {
+					"style": style
+				}), (0, _inferno.createVNode)(1, "h3", null, member.name, 0), (0, _inferno.createVNode)(1, "h4", null, member.role, 0)], 4));
+			}
+
+			return team;
+		}
+	}, {
+		key: "render",
 		value: function render() {
-			return (0, _inferno.createVNode)(1, 'div', 'home');
+			return (0, _inferno.createVNode)(1, "div", "team-page", [(0, _inferno.createVNode)(1, "h1", null, (0, _inferno.createTextVNode)("Team Nahual"), 2), (0, _inferno.createVNode)(1, "h2", null, (0, _inferno.createTextVNode)("A small group of passionate game developers based out of Santa Cruz, California."), 2), (0, _inferno.createVNode)(1, "div", "members-cntr", this.displayMembers(), 0)], 4);
 		}
 	}]);
 
-	return Home;
+	return Team;
 }(_inferno.Component);
 
-exports.default = Home;
+exports.default = Team;
 
 /***/ }),
 /* 23 */
@@ -5406,7 +5475,7 @@ var Juanito = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return (0, _inferno.createVNode)(1, 'div', 'main-contents', [(0, _inferno.createComponentVNode)(2, _Parallax2.default), (0, _inferno.createVNode)(1, 'div', 'main-cntr', [(0, _inferno.createVNode)(1, 'div', 'juanito-logo'), (0, _inferno.createVNode)(1, 'div', 'logo-subtext', (0, _inferno.createTextVNode)('An adventure puzzle game by Team Nahual'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'description text', (0, _inferno.createTextVNode)('Juanito el Nahualito is a beautiful mesoamerican adventure about a teenager who is in search of grandfather and learns about his culture. You play as Juanito, a Nahual capable of having a close connection with nature. Juanito discovers his powers as he remembers his grandfather stories about his Mesoamerican culture.'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'text', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderTitles(), 0), this.renderText()], 0), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'platforms', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Will be available to play on: '), 2), (0, _inferno.createTextVNode)(' Windows \u2022 Mac \u2022 Linux')], 4), (0, _inferno.createVNode)(1, 'div', 'social-media-cntr', [(0, _inferno.createVNode)(1, 'div', 'media-text', (0, _inferno.createTextVNode)(' Follow development at: '), 2), (0, _inferno.createVNode)(1, 'div', 'media-ico twitter'), (0, _inferno.createVNode)(1, 'div', 'media-ico facebook'), (0, _inferno.createVNode)(1, 'div', 'media-ico youtube')], 4)], 4)], 4);
+			return (0, _inferno.createVNode)(1, 'div', 'juanito-el-nahualito-page', [(0, _inferno.createComponentVNode)(2, _Parallax2.default), (0, _inferno.createVNode)(1, 'div', 'main-cntr', [(0, _inferno.createVNode)(1, 'div', 'juanito-logo'), (0, _inferno.createVNode)(1, 'div', 'logo-subtext', (0, _inferno.createTextVNode)('An adventure puzzle game by Team Nahual'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'description text', (0, _inferno.createTextVNode)('Juanito el Nahualito is a beautiful mesoamerican adventure about a teenager who is in search of grandfather and learns about his culture. You play as Juanito, a Nahual capable of having a close connection with nature. Juanito discovers his powers as he remembers his grandfather stories about his Mesoamerican culture.'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'text', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderTitles(), 0), this.renderText()], 0), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'platforms', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Will be available to play on: '), 2), (0, _inferno.createTextVNode)(' Windows \u2022 Mac \u2022 Linux')], 4), (0, _inferno.createVNode)(1, 'div', 'social-media-cntr', [(0, _inferno.createVNode)(1, 'div', 'media-text', (0, _inferno.createTextVNode)(' Follow development at: '), 2), (0, _inferno.createVNode)(1, 'div', 'media-ico twitter'), (0, _inferno.createVNode)(1, 'div', 'media-ico facebook'), (0, _inferno.createVNode)(1, 'div', 'media-ico youtube')], 4)], 4)], 4);
 		}
 	}]);
 
@@ -5439,16 +5508,60 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Parallax = function (_Component) {
 	_inherits(Parallax, _Component);
 
-	function Parallax() {
+	function Parallax(props) {
 		_classCallCheck(this, Parallax);
 
-		return _possibleConstructorReturn(this, (Parallax.__proto__ || Object.getPrototypeOf(Parallax)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (Parallax.__proto__ || Object.getPrototypeOf(Parallax)).call(this, props));
+
+		_this.state = {
+			scrollTop: 0
+		};
+
+		_this.handleScroll = _this.handleScroll.bind(_this);
+		return _this;
 	}
 
 	_createClass(Parallax, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			window.addEventListener('scroll', this.handleScroll);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			window.removeEventListener('scroll', this.handleScroll);
+		}
+	}, {
+		key: 'handleScroll',
+		value: function handleScroll(event) {
+			this.setState({
+				scrollTop: event.srcElement.body.scrollTop
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			return (0, _inferno.createVNode)(1, 'div', 'parallax-cntr', [(0, _inferno.createVNode)(1, 'div', 'image'), (0, _inferno.createVNode)(1, 'div', 'vignette'), (0, _inferno.createVNode)(1, 'div', 'fade-in-gradient')], 4);
+			var height = 800 - this.state.scrollTop / 2;
+			var style = {
+				height: height
+			};
+			var vignetteStyle = {
+				height: height,
+				marginTop: -height
+			};
+			var gradientStyle = {
+				height: height / 2,
+				marginTop: -height / 2
+			};
+			return (0, _inferno.createVNode)(1, 'div', 'parallax-cntr', [(0, _inferno.createVNode)(1, 'div', 'image', null, 1, {
+				'style': style
+			}), (0, _inferno.createVNode)(1, 'div', 'vignette', null, 1, {
+				'style': vignetteStyle
+			}), (0, _inferno.createVNode)(1, 'div', 'fade-in-gradient', null, 1, {
+				'style': gradientStyle
+			})], 4, {
+				'style': style
+			});
 		}
 	}]);
 
