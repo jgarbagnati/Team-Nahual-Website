@@ -23,7 +23,7 @@ export default class NavbarTop extends Component {
 					<NavLink to="/" exact activeClassName="active">
 						<div onclick={this.refresh} className='option'>Home</div>
 					</NavLink>
-					<NavLink to="/juanito" activeClassName="active">
+					<NavLink to="/juanito-el-nahualito" activeClassName="active">
 						<div onclick={this.refresh} className='option'>Juanito el Nahualito</div>
 					</NavLink>
 					<div className='option'>

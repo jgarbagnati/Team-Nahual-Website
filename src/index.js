@@ -29,7 +29,7 @@ export default class Index extends Component {
 					<link rel="stylesheet" type="text/css" href={"css/" + this.state.stylesheet + ".css"} />
 					<Switch>
 						<Route exact path="/" component={Home}/>
-						<Route path="/juanito" component={Juanito}/>
+						<Route path="/juanito-el-nahualito" component={Juanito}/>
 					</Switch>
 					<NavbarTop update={this.update} />
 				</div>
