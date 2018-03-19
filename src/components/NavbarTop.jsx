@@ -21,10 +21,10 @@ export default class NavbarTop extends Component {
 				</div>
 				<div className='right'>
 					<NavLink to="/" exact activeClassName="active">
-						<div onclick={this.refresh} className='option'>Home</div>
-					</NavLink>
-					<NavLink to="/juanito-el-nahualito" activeClassName="active">
 						<div onclick={this.refresh} className='option'>Juanito el Nahualito</div>
+					</NavLink>
+					<NavLink to="/about-us" activeClassName="active">
+						<div onclick={this.refresh} className='option'>Meet the Team</div>
 					</NavLink>
 					<div className='option'>
 						Development Blog

@@ -1,7 +1,7 @@
 import {render, Component} from 'inferno';
 import {HashRouter, Route, Switch} from 'inferno-router';
 import NavbarTop from './components/NavbarTop';
-import Home from './components/Home';
+import Team from './components/Team';
 import Juanito from './components/Juanito';
 
 export default class Index extends Component {
@@ -26,10 +26,10 @@ export default class Index extends Component {
 		return (
 			<HashRouter>
 				<div id='inferno-root'>
-					<link rel="stylesheet" type="text/css" href={"css/" + this.state.stylesheet + ".css"} />
+					
 					<Switch>
-						<Route exact path="/" component={Home}/>
-						<Route path="/juanito-el-nahualito" component={Juanito}/>
+						<Route exact path="/" component={Juanito}/>
+						<Route path="/about-us" component={Team}/>
 					</Switch>
 					<NavbarTop update={this.update} />
 				</div>
