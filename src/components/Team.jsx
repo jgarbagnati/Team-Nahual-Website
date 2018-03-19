@@ -6,6 +6,30 @@ const members = [{
 	},{
 		name: "Jacob Weidner",
 		role: "Producer"
+	},{
+		name: "Ozvaldo Membrila",
+		role: "Narrative, Level Design"
+	},{
+		name: "Chris Huynh",
+		role: "Engineering CoLead"
+	},{
+		name: "James Garbagnati",
+		role: "Engineering CoLead"
+	},{
+		name: "Jude Loren",
+		role: "Lead Tech Artist"
+	},{
+		name: "Jonathan Morales",
+		role: "Lead Sound Designer, Tech Artist"
+	},{
+		name: "Alexandra Winters",
+		role: "3D Art Lead, Character Design"
+	},{
+		name: "Juan Castillo Meija",
+		role: "3D Art Lead, Environment Artist"
+	},{
+		name: "Alejandro Morales Maldonado",
+		role: "Environment Artist"
 	}
 ];
 
