@@ -1,5 +1,5 @@
 import {Component} from 'inferno';
-import {NavLink} from 'inferno-router';
+import {Link, NavLink} from 'inferno-router';
 
 export default class NavbarTop extends Component {
 	constructor(props) {
@@ -15,7 +15,9 @@ export default class NavbarTop extends Component {
 		return (
 			<div className='navbar-top'>
 				<div className='left'>
-					<div className='team-nahual option'>Team Nahual</div>
+					<Link to="/" exact>
+						<div onclick={this.refresh} className='team-nahual option'>Team Nahual</div>
+					</Link>
 				</div>
 				<div className='right'>
 					<NavLink to="/" exact activeClassName="active">
