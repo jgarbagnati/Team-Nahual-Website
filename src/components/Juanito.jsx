@@ -47,7 +47,7 @@ export default class Juanito extends Component {
 	
 	render() {
 		return (
-			<div className='main-contents'>
+			<div className='juanito-el-nahualito-page'>
 				<Parallax />
 				<div className='main-cntr'>
 					<div className='juanito-logo' />
