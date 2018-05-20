@@ -7,7 +7,7 @@ const members = [{
 		name: "Jacob Weidner",
 		role: "Producer"
 	},{
-		name: "Ozvaldo Membrila",
+		name: "Osvaldo Membrilla",
 		role: "Narrative, Level Design"
 	},{
 		name: "Chris Huynh",
@@ -25,7 +25,7 @@ const members = [{
 		name: "Alexandra Winters",
 		role: "3D Art Lead, Character Design"
 	},{
-		name: "Juan Castillo Meija",
+		name: "Juan Nau Castillo",
 		role: "3D Art Lead, Environment Artist"
 	},{
 		name: "Alejandro Morales Maldonado",
@@ -48,6 +48,21 @@ const members = [{
 	},{
 		name: "Nagie Khant",
 		role: "Artist"
+	},{
+		name: "Jana Einser",
+		role: "Artist, Social Media"
+	},{
+		name: "Ian Rapoport",
+		role: "Programmer"
+	},{
+		name: "Kyle Oppenheim",
+		role: "Programmer"
+	},{
+		name: "Spencer Hight",
+		role: "Programmer"
+	},{
+		name: "Mason Reed",
+		role: "Programmer"
 	}
 ];
 
