@@ -67,7 +67,9 @@ export default class Juanito extends Component {
 						<div className='options'>
 							{this.renderTitles()}
 						</div>
+						<div className='optionsContent'>
 						{this.renderText()}
+						</div>
 					</div>
 					
 					<div className='divider-bar' />
