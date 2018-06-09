@@ -5267,7 +5267,7 @@ var NavbarTop = function (_Component) {
 				children: (0, _inferno.createVNode)(1, 'div', 'option', (0, _inferno.createTextVNode)('Meet the Team'), 2, {
 					'onclick': this.refresh
 				})
-			}), (0, _inferno.createVNode)(1, 'div', 'option', (0, _inferno.createTextVNode)('Development Blog'), 2)], 4)], 4);
+			})], 4)], 4);
 		}
 	}]);
 
@@ -5446,7 +5446,9 @@ var Juanito = function (_Component) {
 			opt: 0,
 			act: 0,
 			currScreenshot: 0,
-			screenshotMax: ACT_1_SCREENSHOTS
+			screenshotMax: ACT_1_SCREENSHOTS,
+			doNotRotate: false,
+			isLightboxOpen: false
 		};
 
 		_this.explore = _this.explore.bind(_this);
@@ -5456,7 +5458,12 @@ var Juanito = function (_Component) {
 		_this.act2 = _this.act2.bind(_this);
 		_this.act3 = _this.act3.bind(_this);
 
-		_this.rotateScreenshot = _this.rotateScreenshot.bind(_this);
+		_this.toggleLightbox = _this.toggleLightbox.bind(_this);
+		_this.openLightbox = _this.openLightbox.bind(_this);
+		_this.closeLightbox = _this.closeLightbox.bind(_this);
+
+		_this.screenshotForward = _this.screenshotForward.bind(_this);
+		_this.screenshotBackward = _this.screenshotBackward.bind(_this);
 		_this.autoRotate = _this.autoRotate.bind(_this);
 
 		setTimeout(_this.autoRotate, IMAGE_ROTATION_TIMER);
@@ -5495,14 +5502,6 @@ var Juanito = function (_Component) {
 			}
 
 			return opts;
-		}
-	}, {
-		key: 'renderScreenshots',
-		value: function renderScreenshots() {
-			return (0, _inferno.createVNode)(1, 'img', null, null, 1, {
-				'src': "res/screenshots/act" + (this.state.act + 1) + "_" + (this.state.currScreenshot + 1) + ".png",
-				'onClick': this.rotateScreenshot
-			});
 		}
 	}, {
 		key: 'selectOption',
@@ -5563,23 +5562,60 @@ var Juanito = function (_Component) {
 			this.selectAct(2);
 		}
 	}, {
+		key: 'openLightbox',
+		value: function openLightbox() {
+			this.setState({ isLightboxOpen: true });
+		}
+	}, {
+		key: 'closeLightbox',
+		value: function closeLightbox() {
+			this.setState({ isLightboxOpen: false });
+		}
+	}, {
+		key: 'toggleLightbox',
+		value: function toggleLightbox() {
+			this.setState({ isLightboxOpen: !this.state.isLightboxOpen });
+		}
+	}, {
 		key: 'rotateScreenshot',
-		value: function rotateScreenshot() {
-			var next = this.state.currScreenshot + 1;
+		value: function rotateScreenshot(dir) {
+			var next = this.state.currScreenshot + dir;
 			this.setState({
 				currScreenshot: next % this.state.screenshotMax
 			});
 		}
 	}, {
+		key: 'screenshotForward',
+		value: function screenshotForward() {
+			this.rotateScreenshot(1);
+		}
+	}, {
+		key: 'screenshotBackward',
+		value: function screenshotBackward() {
+			this.rotateScreenshot(-1);
+		}
+	}, {
 		key: 'autoRotate',
 		value: function autoRotate() {
-			this.rotateScreenshot();
+			if (this.state.doNotRotate || this.state.isLightboxOpen) {
+				this.state.doNotRotate = false;
+			} else {
+				this.rotateScreenshot(1);
+			}
 			setTimeout(this.autoRotate, IMAGE_ROTATION_TIMER);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			return (0, _inferno.createVNode)(1, 'div', 'juanito-el-nahualito-page', [(0, _inferno.createComponentVNode)(2, _Parallax2.default), (0, _inferno.createVNode)(1, 'div', 'main-cntr', [(0, _inferno.createVNode)(1, 'div', 'juanito-logo'), (0, _inferno.createVNode)(1, 'div', 'logo-subtext', (0, _inferno.createTextVNode)('An adventure puzzle game by Team Nahual'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'description text', (0, _inferno.createTextVNode)('Juanito El Nahualito is a short exploration and puzzle based narrative experience focused on the coming of age of a modern Latin American teen with a special power to influence wildlife. He discovers throughout the adventure that his abilities are inherited from his cultural ancestors, the Nahaules. The game uses 2D cutscenes and voiceover interspersed with 3D gameplay to provide historical information about this culture and its legends. It has an accompanying physical storybook that acts as a prequel to the game and will be present at the demo.'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'text', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderTitles(), 0), (0, _inferno.createVNode)(1, 'div', 'optionsContent', this.renderText(), 0)], 4), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'section-header', (0, _inferno.createTextVNode)('Gameplay Screenshots'), 2), (0, _inferno.createVNode)(1, 'div', 'screenshots', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderActs(), 0), (0, _inferno.createVNode)(1, 'div', 'screenshots', this.renderScreenshots(), 0)], 4), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'platforms', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Available to play on: '), 2), (0, _inferno.createTextVNode)(' Windows \u2022 Mac \u2022 Linux')], 4), (0, _inferno.createVNode)(1, 'div', 'download', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Download at: '), 2), (0, _inferno.createTextVNode)(' '), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createTextVNode)('Itch.io'), 2, {
+			return (0, _inferno.createVNode)(1, 'div', 'juanito-el-nahualito-page', [(0, _inferno.createComponentVNode)(2, _Parallax2.default), (0, _inferno.createVNode)(1, 'div', 'main-cntr', [(0, _inferno.createVNode)(1, 'div', 'juanito-logo'), (0, _inferno.createVNode)(1, 'div', 'logo-subtext', (0, _inferno.createTextVNode)('An adventure puzzle game by Team Nahual'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'trailer-cntr', (0, _inferno.createVNode)(1, 'iframe', 'trailer', null, 1, {
+				'src': 'https://www.youtube.com/embed/cNzEYpEdDjs',
+				'frameborder': '0',
+				'allow': 'encrypted-media',
+				'allowfullscreen': true
+			}), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'description text', (0, _inferno.createTextVNode)('Juanito El Nahualito is a short exploration and puzzle based narrative experience focused on the coming of age of a modern Latin American teen with a special power to influence wildlife. He discovers throughout the adventure that his abilities are inherited from his cultural ancestors, the Nahaules. The game uses 2D cutscenes and voiceover interspersed with 3D gameplay to provide historical information about this culture and its legends. It has an accompanying physical storybook that acts as a prequel to the game and will be present at the demo.'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'text', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderTitles(), 0), (0, _inferno.createVNode)(1, 'div', 'optionsContent', this.renderText(), 0)], 4), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'section-header', (0, _inferno.createTextVNode)('Gameplay Screenshots'), 2), (0, _inferno.createVNode)(1, 'div', 'screenshots', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderActs(), 0), (0, _inferno.createVNode)(1, 'div', 'screenshots', (0, _inferno.createVNode)(1, 'div', 'screenshot-cntr', (0, _inferno.createVNode)(1, 'img', null, null, 1, {
+				'src': "res/screenshots/sml/act" + (this.state.act + 1) + "_" + (this.state.currScreenshot + 1) + ".png",
+				'onClick': this.openLightbox
+			}), 2), 2)], 4), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'platforms', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Available to play on: '), 2), (0, _inferno.createTextVNode)(' Windows \u2022 Mac \u2022 Linux')], 4), (0, _inferno.createVNode)(1, 'div', 'download', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Download at: '), 2), (0, _inferno.createTextVNode)(' '), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createTextVNode)('Itch.io'), 2, {
 				'href': 'https://teamnahual.itch.io/juanito-el-nahualito'
 			})], 4), (0, _inferno.createVNode)(1, 'div', 'social-media-cntr', [(0, _inferno.createVNode)(1, 'div', 'media-text', (0, _inferno.createTextVNode)(' Follow development at: '), 2), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createVNode)(1, 'div', 'media-ico twitter'), 2, {
 				'href': 'https://twitter.com/teamnahual'
@@ -5589,7 +5625,14 @@ var Juanito = function (_Component) {
 				'href': 'https://www.facebook.com/Juanito-el-Nahualito-757032334502080/'
 			}), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createVNode)(1, 'div', 'media-ico youtube'), 2, {
 				'href': 'https://www.youtube.com/channel/UC1xYaoWxGgCDW6J1OaXUbfA'
-			})], 4)], 4)], 4);
+			})], 4), (0, _inferno.createVNode)(1, 'div', "modal-cntr" + (this.state.isLightboxOpen ? "" : " hidden"), [(0, _inferno.createVNode)(1, 'div', 'modal-background', null, 1, {
+				'onClick': this.closeLightbox
+			}), (0, _inferno.createVNode)(1, 'div', 'lightbox', [this.state.isLightboxOpen ? (0, _inferno.createVNode)(1, 'img', null, null, 1, {
+				'src': "res/screenshots/lrg/act" + (this.state.act + 1) + "_" + (this.state.currScreenshot + 1) + ".png",
+				'onClick': this.screenshotForward
+			}) : "", (0, _inferno.createVNode)(1, 'div', 'close-lightbox', null, 1, {
+				'onClick': this.closeLightbox
+			})], 0)], 4)], 4)], 4);
 		}
 	}]);
 
