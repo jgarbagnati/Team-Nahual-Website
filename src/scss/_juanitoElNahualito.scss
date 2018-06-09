@@ -127,11 +127,13 @@
 				font-size: 20px;
 				height: 32px;
 				cursor: default;
+				padding-left: 64px;
 				user-select: none;
 			}
 			
-			.twitter  {background-image: url("../res/icons/twitter.png");}
 			.facebook {background-image: url("../res/icons/facebook.png");}
+			.tumblr   {background-image: url("../res/icons/tumblr.png");}
+			.twitter  {background-image: url("../res/icons/twitter.png");}
 			.youtube  {background-image: url("../res/icons/youtube.png");}
 			
 			.media-ico {

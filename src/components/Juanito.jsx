@@ -85,9 +85,10 @@ export default class Juanito extends Component {
 					
 					<div className='social-media-cntr'>
 						<div className='media-text'> Follow development at: </div>
-						<div className='media-ico twitter' />
-						<div className='media-ico facebook' />
-						<div className='media-ico youtube' />
+						<a href="https://twitter.com/teamnahual"><div className='media-ico twitter' /></a>
+						<a href="https://teamnahual.tumblr.com/"><div className='media-ico tumblr' /></a>
+						<a href="https://www.facebook.com/Juanito-el-Nahualito-757032334502080/"><div className='media-ico facebook' /></a>
+						<a href="https://www.youtube.com/channel/UC1xYaoWxGgCDW6J1OaXUbfA"><div className='media-ico youtube' /></a>
 					</div>
 				</div>
 			</div>
