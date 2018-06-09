@@ -212,9 +212,9 @@ export default class Juanito extends Component {
 					<div className={"modal-cntr" + ((this.state.isLightboxOpen)? "": " hidden")}>
 						<div className="modal-background" onClick={this.closeLightbox} />
 						<div className="lightbox">
-							<img src={"res/screenshots/lrg/act" + (this.state.act + 1)
+							{(this.state.isLightboxOpen)? (<img src={"res/screenshots/lrg/act" + (this.state.act + 1)
 									+ "_" + (this.state.currScreenshot + 1) + ".png"}
-									onClick={this.screenshotForward} />
+								onClick={this.screenshotForward} />): ""}
 							<div className="close-lightbox" onClick={this.closeLightbox} />
 						</div>
 					</div>
