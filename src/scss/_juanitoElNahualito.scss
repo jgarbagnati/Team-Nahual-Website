@@ -208,5 +208,47 @@
 			}
 		}
 	}
+	
+	.modal-cntr {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		background-color: rgba(0,0,0,0.5);
+		
+		&.hidden {
+			display: none;
+		}
+		
+		.lightbox {
+			position: absolute;
+			width: 80%;
+			padding-top: 50%;
+			top: 50%;
+			transform: translate(0%, -50%);
+			left: 10%;
+			
+			img {
+				position: absolute;
+				top: 50%;
+				transform: translate(0%, -50%);
+				width: 100%;
+				height: auto;
+				
+				cursor: pointer;
+			}
+		}
+		
+		.modal-background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0,0,0,0.5);
+		}
+	}
 }
 
