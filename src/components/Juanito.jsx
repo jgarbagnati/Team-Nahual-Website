@@ -69,9 +69,13 @@ export default class Juanito extends Component {
 	}
 	
 	renderScreenshots() {
-		return <img src={"res/screenshots/sml/act" + (this.state.act + 1)
-			+ "_" + (this.state.currScreenshot + 1) + ".png"} 
-			onClick={this.rotateScreenshot} />;
+		return (
+			<div className="screenshot-cntr">
+				<img src={"res/screenshots/sml/act" + (this.state.act + 1)
+					+ "_" + (this.state.currScreenshot + 1) + ".png"} 
+					onClick={this.rotateScreenshot} />
+			</div>
+		);
 	}
 	
 	selectOption(opt) {
