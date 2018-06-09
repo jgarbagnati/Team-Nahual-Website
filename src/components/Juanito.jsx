@@ -6,6 +6,7 @@ const optionText = ["Juanito el Nahualito is a story that takes places in curren
 const ACT_1_SCREENSHOTS = 7;
 const ACT_2_SCREENSHOTS = 7;
 const ACT_3_SCREENSHOTS = 5;
+const IMAGE_ROTATION_TIMER = 2500;
 
 export default class Juanito extends Component {
 	constructor(props) {
@@ -25,7 +26,10 @@ export default class Juanito extends Component {
 		this.act2 = this.act2.bind(this);
 		this.act3 = this.act3.bind(this);
 		
-		this.rotateScreenshot = this.rotateScreenshot.bind(this)
+		this.rotateScreenshot = this.rotateScreenshot.bind(this);
+		this.autoRotate = this.autoRotate.bind(this);
+		
+		setTimeout(this.autoRotate, IMAGE_ROTATION_TIMER);
 	}
 	
 	renderTitles() {
@@ -108,6 +112,11 @@ export default class Juanito extends Component {
 		this.setState({
 			currScreenshot: next % this.state.screenshotMax
 		});
+	}
+	
+	autoRotate() {
+		this.rotateScreenshot();
+		setTimeout(this.autoRotate, IMAGE_ROTATION_TIMER);
 	}
 	
 	render() {
