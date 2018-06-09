@@ -76,6 +76,11 @@ export default class Juanito extends Component {
 					
 					<div className='platforms'>
 						<span>Will be available to play on: </span> Windows • Mac • Linux
+						<span>Available to play on: </span> Windows • Mac • Linux
+					</div>
+					
+					<div className='download'>
+						<span>Download at: </span> <a href="https://teamnahual.itch.io/juanito-el-nahualito">Itch.io</a>
 					</div>
 					
 					<div className='social-media-cntr'>
