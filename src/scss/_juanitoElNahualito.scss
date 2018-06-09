@@ -36,6 +36,19 @@
 			text-transform: uppercase;
 		}
 		
+		.trailer-cntr {
+			position: relative;
+			width: 100%;
+			padding-top: 56.2%;
+		}
+		
+		.trailer {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		
 		.section-header {
 			width: 100%;
 			text-align: center;

@@ -131,6 +131,12 @@ export default class Juanito extends Component {
 					
 					<div className='divider-bar' />
 					
+					<div className="trailer-cntr">
+						<iframe className="trailer" src="https://www.youtube.com/embed/cNzEYpEdDjs" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+					</div>
+					
+					<div className='divider-bar' />
+					
 					<div className='description text'>
 						Juanito El Nahualito is a short exploration and puzzle based narrative experience focused on the coming of age of a modern Latin American teen with a special power to influence wildlife. He discovers throughout the adventure that his abilities are inherited from his cultural ancestors, the Nahaules. The game uses 2D cutscenes and voiceover interspersed with 3D gameplay to provide historical information about this culture and its legends. It has an accompanying physical storybook that acts as a prequel to the game and will be present at the demo.
 					</div>
