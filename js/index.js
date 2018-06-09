@@ -5304,7 +5304,7 @@ var members = [{
 	name: "Jacob Weidner",
 	role: "Producer"
 }, {
-	name: "Ozvaldo Membrila",
+	name: "Osvaldo Membrilla",
 	role: "Narrative, Level Design"
 }, {
 	name: "Chris Huynh",
@@ -5322,7 +5322,7 @@ var members = [{
 	name: "Alexandra Winters",
 	role: "3D Art Lead, Character Design"
 }, {
-	name: "Juan Castillo Meija",
+	name: "Juan Nau Castillo",
 	role: "3D Art Lead, Environment Artist"
 }, {
 	name: "Alejandro Morales Maldonado",
@@ -5345,6 +5345,21 @@ var members = [{
 }, {
 	name: "Nagie Khant",
 	role: "Artist"
+}, {
+	name: "Jana Einser",
+	role: "Artist, Social Media"
+}, {
+	name: "Ian Rapoport",
+	role: "Programmer"
+}, {
+	name: "Kyle Oppenheim",
+	role: "Programmer"
+}, {
+	name: "Spencer Hight",
+	role: "Programmer"
+}, {
+	name: "Mason Reed",
+	role: "Programmer"
 }];
 
 var Team = function (_Component) {
@@ -5414,6 +5429,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var optionTitle = ['Story', 'Explore', 'Nahual'];
 var optionText = ["Juanito el Nahualito is a story that takes places in current time. A story about a teenager named Juanito. Juanito lives with his grandfather who migrated to the city from his village to take care of his grandson. Juanito Was given to his grandfather to take care of him as his Mother tries to provide from another city. Juanito grows up with his grandfather who used to tell stories to Juanito about his heritage and roots. As Juanito grows up to be a teen, he stops believing his grandfather about those stories. At the age of 16, Juanito has an internal conflict of who he is. Juan (the grandfather) falls ill and asks Juanito to help him. As Juanito tries to help his grandfather, his grandfather leaves mysteriously. Juanito then decides to follow him and loses him in the forest. Juanito falls and faints in the forest; this is where he discovers a power that his grandfather once told him as story/fable.", "The look and feel of the Juanito el Nahualito is a reference to wood carving that tells a story and Mesoamerican oral tradition of storytelling. Magical Realism is applied to tell a coming-of-age story.", "In Mesoamerican cultures like Aztecs, Mayans, Zapotecs, and Mixtecs, the shaman or priest was known as the nahual. According to tradition, the nahuales could transform into animals and penetrate with their soul the body of an animal or natural phenomena. By adopting these appearances, these nahuales performed their prodigious actions. The nahual is the animal that gives us its characteristics soon after our birth. It is told that we all are born with a nahual, which is the animal that is born at the same time as we are."];
+var ACT_1_SCREENSHOTS = 7;
+var ACT_2_SCREENSHOTS = 7;
+var ACT_3_SCREENSHOTS = 5;
+var IMAGE_ROTATION_TIMER = 2500;
 
 var Juanito = function (_Component) {
 	_inherits(Juanito, _Component);
@@ -5424,12 +5443,23 @@ var Juanito = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (Juanito.__proto__ || Object.getPrototypeOf(Juanito)).call(this, props));
 
 		_this.state = {
-			opt: 0
+			opt: 0,
+			act: 0,
+			currScreenshot: 0,
+			screenshotMax: ACT_1_SCREENSHOTS
 		};
 
 		_this.explore = _this.explore.bind(_this);
 		_this.nahual = _this.nahual.bind(_this);
 		_this.story = _this.story.bind(_this);
+		_this.act1 = _this.act1.bind(_this);
+		_this.act2 = _this.act2.bind(_this);
+		_this.act3 = _this.act3.bind(_this);
+
+		_this.rotateScreenshot = _this.rotateScreenshot.bind(_this);
+		_this.autoRotate = _this.autoRotate.bind(_this);
+
+		setTimeout(_this.autoRotate, IMAGE_ROTATION_TIMER);
 		return _this;
 	}
 
@@ -5453,9 +5483,54 @@ var Juanito = function (_Component) {
 			return optionText[this.state.opt];
 		}
 	}, {
+		key: 'renderActs',
+		value: function renderActs() {
+			var fun = [this.act1, this.act2, this.act3];
+			var opts = [];
+			for (var i = 0; i < fun.length; ++i) {
+				var className = i == this.state.act ? "selected" : "";
+				opts.push((0, _inferno.createVNode)(1, 'div', className, "Act " + (i + 1), 0, {
+					'onClick': fun[i]
+				}));
+			}
+
+			return opts;
+		}
+	}, {
+		key: 'renderScreenshots',
+		value: function renderScreenshots() {
+			return (0, _inferno.createVNode)(1, 'img', null, null, 1, {
+				'src': "res/screenshots/act" + (this.state.act + 1) + "_" + (this.state.currScreenshot + 1) + ".png",
+				'onClick': this.rotateScreenshot
+			});
+		}
+	}, {
 		key: 'selectOption',
 		value: function selectOption(opt) {
 			this.setState({ opt: opt });
+		}
+	}, {
+		key: 'selectAct',
+		value: function selectAct(act) {
+			var ssCount = 1;
+			switch (act) {
+				case 0:
+					ssCount = ACT_1_SCREENSHOTS;
+					break;
+				case 1:
+					ssCount = ACT_2_SCREENSHOTS;
+					break;
+				case 2:
+					ssCount = ACT_3_SCREENSHOTS;
+					break;
+				default:
+					break;
+			}
+			this.setState({
+				act: act,
+				currScreenshot: 0,
+				screenshotMax: ssCount
+			});
 		}
 	}, {
 		key: 'story',
@@ -5473,9 +5548,48 @@ var Juanito = function (_Component) {
 			this.selectOption(2);
 		}
 	}, {
+		key: 'act1',
+		value: function act1() {
+			this.selectAct(0);
+		}
+	}, {
+		key: 'act2',
+		value: function act2() {
+			this.selectAct(1);
+		}
+	}, {
+		key: 'act3',
+		value: function act3() {
+			this.selectAct(2);
+		}
+	}, {
+		key: 'rotateScreenshot',
+		value: function rotateScreenshot() {
+			var next = this.state.currScreenshot + 1;
+			this.setState({
+				currScreenshot: next % this.state.screenshotMax
+			});
+		}
+	}, {
+		key: 'autoRotate',
+		value: function autoRotate() {
+			this.rotateScreenshot();
+			setTimeout(this.autoRotate, IMAGE_ROTATION_TIMER);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			return (0, _inferno.createVNode)(1, 'div', 'juanito-el-nahualito-page', [(0, _inferno.createComponentVNode)(2, _Parallax2.default), (0, _inferno.createVNode)(1, 'div', 'main-cntr', [(0, _inferno.createVNode)(1, 'div', 'juanito-logo'), (0, _inferno.createVNode)(1, 'div', 'logo-subtext', (0, _inferno.createTextVNode)('An adventure puzzle game by Team Nahual'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'description text', (0, _inferno.createTextVNode)('Juanito el Nahualito is a beautiful mesoamerican adventure about a teenager who is in search of grandfather and learns about his culture. You play as Juanito, a Nahual capable of having a close connection with nature. Juanito discovers his powers as he remembers his grandfather stories about his Mesoamerican culture.'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'text', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderTitles(), 0), this.renderText()], 0), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'platforms', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Will be available to play on: '), 2), (0, _inferno.createTextVNode)(' Windows \u2022 Mac \u2022 Linux')], 4), (0, _inferno.createVNode)(1, 'div', 'social-media-cntr', [(0, _inferno.createVNode)(1, 'div', 'media-text', (0, _inferno.createTextVNode)(' Follow development at: '), 2), (0, _inferno.createVNode)(1, 'div', 'media-ico twitter'), (0, _inferno.createVNode)(1, 'div', 'media-ico facebook'), (0, _inferno.createVNode)(1, 'div', 'media-ico youtube')], 4)], 4)], 4);
+			return (0, _inferno.createVNode)(1, 'div', 'juanito-el-nahualito-page', [(0, _inferno.createComponentVNode)(2, _Parallax2.default), (0, _inferno.createVNode)(1, 'div', 'main-cntr', [(0, _inferno.createVNode)(1, 'div', 'juanito-logo'), (0, _inferno.createVNode)(1, 'div', 'logo-subtext', (0, _inferno.createTextVNode)('An adventure puzzle game by Team Nahual'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'description text', (0, _inferno.createTextVNode)('Juanito El Nahualito is a short exploration and puzzle based narrative experience focused on the coming of age of a modern Latin American teen with a special power to influence wildlife. He discovers throughout the adventure that his abilities are inherited from his cultural ancestors, the Nahaules. The game uses 2D cutscenes and voiceover interspersed with 3D gameplay to provide historical information about this culture and its legends. It has an accompanying physical storybook that acts as a prequel to the game and will be present at the demo.'), 2), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'text', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderTitles(), 0), (0, _inferno.createVNode)(1, 'div', 'optionsContent', this.renderText(), 0)], 4), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'section-header', (0, _inferno.createTextVNode)('Gameplay Screenshots'), 2), (0, _inferno.createVNode)(1, 'div', 'screenshots', [(0, _inferno.createVNode)(1, 'div', 'options', this.renderActs(), 0), (0, _inferno.createVNode)(1, 'div', 'screenshots', this.renderScreenshots(), 0)], 4), (0, _inferno.createVNode)(1, 'div', 'divider-bar'), (0, _inferno.createVNode)(1, 'div', 'platforms', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Available to play on: '), 2), (0, _inferno.createTextVNode)(' Windows \u2022 Mac \u2022 Linux')], 4), (0, _inferno.createVNode)(1, 'div', 'download', [(0, _inferno.createVNode)(1, 'span', null, (0, _inferno.createTextVNode)('Download at: '), 2), (0, _inferno.createTextVNode)(' '), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createTextVNode)('Itch.io'), 2, {
+				'href': 'https://teamnahual.itch.io/juanito-el-nahualito'
+			})], 4), (0, _inferno.createVNode)(1, 'div', 'social-media-cntr', [(0, _inferno.createVNode)(1, 'div', 'media-text', (0, _inferno.createTextVNode)(' Follow development at: '), 2), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createVNode)(1, 'div', 'media-ico twitter'), 2, {
+				'href': 'https://twitter.com/teamnahual'
+			}), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createVNode)(1, 'div', 'media-ico tumblr'), 2, {
+				'href': 'https://teamnahual.tumblr.com/'
+			}), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createVNode)(1, 'div', 'media-ico facebook'), 2, {
+				'href': 'https://www.facebook.com/Juanito-el-Nahualito-757032334502080/'
+			}), (0, _inferno.createVNode)(1, 'a', null, (0, _inferno.createVNode)(1, 'div', 'media-ico youtube'), 2, {
+				'href': 'https://www.youtube.com/channel/UC1xYaoWxGgCDW6J1OaXUbfA'
+			})], 4)], 4)], 4);
 		}
 	}]);
 
@@ -5504,6 +5618,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import MediaQuery from 'react-responsive';
 
 var Parallax = function (_Component) {
 	_inherits(Parallax, _Component);
@@ -5542,6 +5658,12 @@ var Parallax = function (_Component) {
 		key: 'render',
 		value: function render() {
 			var height = 800 - this.state.scrollTop / 2;
+			if (window.innerWidth > 800) {
+				height = 800 - this.state.scrollTop / 2;
+			} else {
+				height = 500 - this.state.scrollTop / 2;
+			}
+
 			var style = {
 				height: height
 			};
