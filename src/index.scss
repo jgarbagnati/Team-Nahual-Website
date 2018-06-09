@@ -10,7 +10,8 @@ $secondary-color-font: #888888;
 	left: 0;
 	width: 100%;
 	min-height: 100%;
-	background-color: $secondary-color-layout
+	background-color: $secondary-color-layout;
+	overflow-x: hidden;
 }
 
 $primary-font: 'Lato', sans-serif;
