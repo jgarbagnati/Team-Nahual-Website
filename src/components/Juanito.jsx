@@ -24,6 +24,8 @@ export default class Juanito extends Component {
 		this.act1 = this.act1.bind(this);
 		this.act2 = this.act2.bind(this);
 		this.act3 = this.act3.bind(this);
+		
+		this.rotateScreenshot = this.rotateScreenshot.bind(this)
 	}
 	
 	renderTitles() {
@@ -64,7 +66,8 @@ export default class Juanito extends Component {
 	
 	renderScreenshots() {
 		return <img src={"res/screenshots/act" + (this.state.act + 1)
-			+ "_" + (this.state.currScreenshot + 1) + ".png"} />;
+			+ "_" + (this.state.currScreenshot + 1) + ".png"} 
+			onClick={this.rotateScreenshot} />;
 	}
 	
 	selectOption(opt) {
@@ -100,6 +103,13 @@ export default class Juanito extends Component {
 	act2() {this.selectAct(1);}
 	act3() {this.selectAct(2);}
 	
+	rotateScreenshot() {
+		let next = this.state.currScreenshot + 1;
+		this.setState({
+			currScreenshot: next % this.state.screenshotMax
+		});
+	}
+	
 	render() {
 		return (
 			<div className='juanito-el-nahualito-page'>
@@ -130,7 +140,7 @@ export default class Juanito extends Component {
 					<div className='divider-bar' />
 					
 					<div className='section-header'>
-						Screenshots
+						Gameplay Screenshots
 					</div>
 					
 					<div className='screenshots'>
