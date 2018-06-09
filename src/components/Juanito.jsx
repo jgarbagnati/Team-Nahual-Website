@@ -16,7 +16,9 @@ export default class Juanito extends Component {
 			opt: 0,
 			act: 0,
 			currScreenshot: 0,
-			screenshotMax: ACT_1_SCREENSHOTS
+			screenshotMax: ACT_1_SCREENSHOTS,
+			doNotRotate: false,
+			isLightboxOpen: false
 		};
 		
 		this.explore = this.explore.bind(this);
@@ -26,7 +28,12 @@ export default class Juanito extends Component {
 		this.act2 = this.act2.bind(this);
 		this.act3 = this.act3.bind(this);
 		
-		this.rotateScreenshot = this.rotateScreenshot.bind(this);
+		this.toggleLightbox = this.toggleLightbox.bind(this);
+		this.openLightbox = this.openLightbox.bind(this);
+		this.closeLightbox = this.closeLightbox.bind(this);
+		
+		this.screenshotForward = this.screenshotForward.bind(this);
+		this.screenshotBackward = this.screenshotBackward.bind(this);
 		this.autoRotate = this.autoRotate.bind(this);
 		
 		setTimeout(this.autoRotate, IMAGE_ROTATION_TIMER);
@@ -68,12 +75,6 @@ export default class Juanito extends Component {
 		return opts;
 	}
 	
-	renderScreenshots() {
-		return <img src={"res/screenshots/act" + (this.state.act + 1)
-			+ "_" + (this.state.currScreenshot + 1) + ".png"} 
-			onClick={this.rotateScreenshot} />;
-	}
-	
 	selectOption(opt) {
 		this.setState({opt: opt});
 	}
@@ -107,15 +108,34 @@ export default class Juanito extends Component {
 	act2() {this.selectAct(1);}
 	act3() {this.selectAct(2);}
 	
-	rotateScreenshot() {
-		let next = this.state.currScreenshot + 1;
+	openLightbox() {
+		this.setState({isLightboxOpen: true});
+	}
+	
+	closeLightbox() {
+		this.setState({isLightboxOpen: false});
+	}
+	
+	toggleLightbox() {
+		this.setState({isLightboxOpen: !this.state.isLightboxOpen});
+	}
+	
+	rotateScreenshot(dir) {
+		let next = this.state.currScreenshot + dir;
 		this.setState({
 			currScreenshot: next % this.state.screenshotMax
 		});
 	}
 	
+	screenshotForward() {this.rotateScreenshot(1);}
+	screenshotBackward() {this.rotateScreenshot(-1);}
+	
 	autoRotate() {
-		this.rotateScreenshot();
+		if (this.state.doNotRotate || this.state.isLightboxOpen) {
+			this.state.doNotRotate = false;
+		} else {
+			this.rotateScreenshot(1);
+		}
 		setTimeout(this.autoRotate, IMAGE_ROTATION_TIMER);
 	}
 	
@@ -127,6 +147,12 @@ export default class Juanito extends Component {
 					<div className='juanito-logo' />
 					<div className='logo-subtext'>
 						An adventure puzzle game by Team Nahual
+					</div>
+					
+					<div className='divider-bar' />
+					
+					<div className="trailer-cntr">
+						<iframe className="trailer" src="https://www.youtube.com/embed/cNzEYpEdDjs" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
 					</div>
 					
 					<div className='divider-bar' />
@@ -157,7 +183,11 @@ export default class Juanito extends Component {
 							{this.renderActs()}
 						</div>
 						<div className='screenshots'>
-						{this.renderScreenshots()}
+							<div className="screenshot-cntr">
+								<img src={"res/screenshots/sml/act" + (this.state.act + 1)
+									+ "_" + (this.state.currScreenshot + 1) + ".png"}
+									onClick={this.openLightbox} />
+							</div>
 						</div>
 					</div>
 					
@@ -177,6 +207,16 @@ export default class Juanito extends Component {
 						<a href="https://teamnahual.tumblr.com/"><div className='media-ico tumblr' /></a>
 						<a href="https://www.facebook.com/Juanito-el-Nahualito-757032334502080/"><div className='media-ico facebook' /></a>
 						<a href="https://www.youtube.com/channel/UC1xYaoWxGgCDW6J1OaXUbfA"><div className='media-ico youtube' /></a>
+					</div>
+					
+					<div className={"modal-cntr" + ((this.state.isLightboxOpen)? "": " hidden")}>
+						<div className="modal-background" onClick={this.closeLightbox} />
+						<div className="lightbox">
+							{(this.state.isLightboxOpen)? (<img src={"res/screenshots/lrg/act" + (this.state.act + 1)
+									+ "_" + (this.state.currScreenshot + 1) + ".png"}
+								onClick={this.screenshotForward} />): ""}
+							<div className="close-lightbox" onClick={this.closeLightbox} />
+						</div>
 					</div>
 				</div>
 			</div>

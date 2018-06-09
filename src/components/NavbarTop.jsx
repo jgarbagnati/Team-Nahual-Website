@@ -26,9 +26,6 @@ export default class NavbarTop extends Component {
 					<NavLink to="/about-us" activeClassName="active">
 						<div onclick={this.refresh} className='option'>Meet the Team</div>
 					</NavLink>
-					<div className='option'>
-						Development Blog
-					</div>
 				</div>
 			</div>
 		);
