@@ -208,13 +208,15 @@ export default class Juanito extends Component {
 						<a href="https://www.facebook.com/Juanito-el-Nahualito-757032334502080/"><div className='media-ico facebook' /></a>
 						<a href="https://www.youtube.com/channel/UC1xYaoWxGgCDW6J1OaXUbfA"><div className='media-ico youtube' /></a>
 					</div>
-				</div>
-				<div className={"modal-cntr" + ((this.state.isLightboxOpen)? "": " hidden")}>
-					<div className="modal-background" onClick={this.closeLightbox} />
-					<div className="lightbox">
-						<img src={"res/screenshots/lrg/act" + (this.state.act + 1)
-								+ "_" + (this.state.currScreenshot + 1) + ".png"}
-								onClick={this.screenshotForward} />
+					
+					<div className={"modal-cntr" + ((this.state.isLightboxOpen)? "": " hidden")}>
+						<div className="modal-background" onClick={this.closeLightbox} />
+						<div className="lightbox">
+							<img src={"res/screenshots/lrg/act" + (this.state.act + 1)
+									+ "_" + (this.state.currScreenshot + 1) + ".png"}
+									onClick={this.screenshotForward} />
+							<div className="close-lightbox" onClick={this.closeLightbox} />
+						</div>
 					</div>
 				</div>
 			</div>
