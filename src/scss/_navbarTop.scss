@@ -4,18 +4,33 @@
 	width: 100%;
 	height: 30px;
 	background-color: $primary-color-layout;
+
+
+
 	
-	.left {
-		float: left;
-		text-transform: uppercase;
-		font-weight: black;
+
+	@media screen and (min-width:800px) {
+			/* CSS for screens that are 800 pixels or less */
+			.left {
+				float: left;
+				text-transform: uppercase;
+				font-weight: black;
+				}
+			.right {
+				float: right;
+			}
+		}
+
+	@media screen and (max-width:800px){
+		.left{
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: black;
+		}
+		.right {
+			text-align: center;
+		}
 	}
-	
-	.right {
-		float: right;
-	}
-	
-	
 	.option {
 		display: inline-block;
 		font-family: $primary-font;

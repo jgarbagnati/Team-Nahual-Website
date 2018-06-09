@@ -1,4 +1,5 @@
 import {Component} from 'inferno';
+//import MediaQuery from 'react-responsive';
 
 export default class Parallax extends Component {
 	constructor(props) {
@@ -27,6 +28,12 @@ export default class Parallax extends Component {
 	
 	render() {
 		let height = 800 - this.state.scrollTop / 2;
+		if(window.innerWidth > 800){
+			 height = 800 - this.state.scrollTop / 2;
+		}else{
+			 height = 500 - this.state.scrollTop / 2;
+		}
+
 		let style = {
 			height: height
 		};

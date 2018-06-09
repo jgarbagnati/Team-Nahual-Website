@@ -8,17 +8,39 @@
 	.image {
 		width: 100%;
 		height: 100%;
-		background-image: url("../res/juanito-face.png");
-		background-position-x: center;
-		background-size: 1055px 1123px;
-		background-repeat: no-repeat;
+		@media screen and (min-width:800px) {
+			background-image: url("../res/juanito-face.png");
+			background-position-x: center;
+			background-size: 1055px 1123px;
+			background-repeat: no-repeat;
+		}
+
+		@media screen and (max-width:800px){
+			background-image: url("../res/juanito-face-mobile.png");
+			background-position-x: center;
+			background-size: 1055px 600px;
+			background-repeat: no-repeat;
+		}
+
+
 	}
-	
+
+
 	.vignette {
-		width: 1200px;
-		height: 100%;
-		margin-left: calc(50% - 600px);
-		margin-top: -800px;
+		@media screen and (min-width:800px) {
+			width: 1200px;
+			height: 100%;
+			margin-left: calc(50% - 600px);
+			margin-top: -800px;
+		}
+
+		@media screen and (max-width:800px){
+			width: 1200px;
+			height: 100%;
+			margin-left: calc(50% - 600px);
+			margin-top: -800px;
+		}
+
 		background: radial-gradient(50% 150% at 50% 100%, transparent 70%, rgba(0,0,0,0.9) 85%, #000 90%);
 	}
 	
