@@ -28,9 +28,36 @@
 			background-color: lighten($primary-color-layout, 25%);
 		}
 		
+		.logo-subtext {
+			width: 100%;
+			text-align: center;
+			font-size: 24px;
+			font-family: $primary-font;
+			text-transform: uppercase;
+		}
+		
+		.section-header {
+			width: 100%;
+			text-align: center;
+			font-size: 24px;
+			font-family: $primary-font;
+			text-transform: uppercase;
+			padding-bottom: 16px;
+		}
+		
 		.text {
 			font-family: $secondary-font;
 			text-align: justify;
+		}
+		
+		.screenshots {
+			font-family: $secondary-font;
+			text-align: justify;
+			
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
 			
 		a:link, a:visited, a:hover {
