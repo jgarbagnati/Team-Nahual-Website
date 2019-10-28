@@ -9,14 +9,14 @@
 		width: 100%;
 		height: 100%;
 		@media screen and (min-width:800px) {
-			background-image: url("../res/juanito-face.png");
+			background-image: url("./res/juanito-face.png");
 			background-position-x: center;
 			background-size: 1055px 1123px;
 			background-repeat: no-repeat;
 		}
 
 		@media screen and (max-width:800px){
-			background-image: url("../res/juanito-face-mobile.png");
+			background-image: url("./res/juanito-face-mobile.png");
 			background-position-x: center;
 			background-size: 1055px 600px;
 			background-repeat: no-repeat;

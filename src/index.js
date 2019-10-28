@@ -3,6 +3,7 @@ import {HashRouter, Route, Switch} from 'inferno-router';
 import NavbarTop from './components/NavbarTop';
 import Team from './components/Team';
 import Juanito from './components/Juanito';
+import './index.scss';
 
 export default class Index extends Component {
 	constructor(props) {
