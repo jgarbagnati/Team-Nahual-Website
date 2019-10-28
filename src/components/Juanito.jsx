@@ -1,5 +1,43 @@
 import {Component} from 'inferno';
 import Parallax from './Parallax';
+import sml_act1_1 from '../res/screenshots/sml/act1_1.png';
+import sml_act1_2 from '../res/screenshots/sml/act1_2.png';
+import sml_act1_3 from '../res/screenshots/sml/act1_3.png';
+import sml_act1_4 from '../res/screenshots/sml/act1_4.png';
+import sml_act1_5 from '../res/screenshots/sml/act1_5.png';
+import sml_act1_6 from '../res/screenshots/sml/act1_6.png';
+import sml_act1_7 from '../res/screenshots/sml/act1_7.png';
+import sml_act2_1 from '../res/screenshots/sml/act2_1.png';
+import sml_act2_2 from '../res/screenshots/sml/act2_2.png';
+import sml_act2_3 from '../res/screenshots/sml/act2_3.png';
+import sml_act2_4 from '../res/screenshots/sml/act2_4.png';
+import sml_act2_5 from '../res/screenshots/sml/act2_5.png';
+import sml_act2_6 from '../res/screenshots/sml/act2_6.png';
+import sml_act2_7 from '../res/screenshots/sml/act2_7.png';
+import sml_act3_1 from '../res/screenshots/sml/act3_1.png';
+import sml_act3_2 from '../res/screenshots/sml/act3_2.png';
+import sml_act3_3 from '../res/screenshots/sml/act3_3.png';
+import sml_act3_4 from '../res/screenshots/sml/act3_4.png';
+import sml_act3_5 from '../res/screenshots/sml/act3_5.png';
+import lrg_act1_1 from '../res/screenshots/lrg/act1_1.png';
+import lrg_act1_2 from '../res/screenshots/lrg/act1_2.png';
+import lrg_act1_3 from '../res/screenshots/lrg/act1_3.png';
+import lrg_act1_4 from '../res/screenshots/lrg/act1_4.png';
+import lrg_act1_5 from '../res/screenshots/lrg/act1_5.png';
+import lrg_act1_6 from '../res/screenshots/lrg/act1_6.png';
+import lrg_act1_7 from '../res/screenshots/lrg/act1_7.png';
+import lrg_act2_1 from '../res/screenshots/lrg/act2_1.png';
+import lrg_act2_2 from '../res/screenshots/lrg/act2_2.png';
+import lrg_act2_3 from '../res/screenshots/lrg/act2_3.png';
+import lrg_act2_4 from '../res/screenshots/lrg/act2_4.png';
+import lrg_act2_5 from '../res/screenshots/lrg/act2_5.png';
+import lrg_act2_6 from '../res/screenshots/lrg/act2_6.png';
+import lrg_act2_7 from '../res/screenshots/lrg/act2_7.png';
+import lrg_act3_1 from '../res/screenshots/lrg/act3_1.png';
+import lrg_act3_2 from '../res/screenshots/lrg/act3_2.png';
+import lrg_act3_3 from '../res/screenshots/lrg/act3_3.png';
+import lrg_act3_4 from '../res/screenshots/lrg/act3_4.png';
+import lrg_act3_5 from '../res/screenshots/lrg/act3_5.png';
 
 const optionTitle = ['Story', 'Explore', 'Nahual'];
 const optionText = ["Juanito el Nahualito is a story that takes places in current time. A story about a teenager named Juanito. Juanito lives with his grandfather who migrated to the city from his village to take care of his grandson. Juanito Was given to his grandfather to take care of him as his Mother tries to provide from another city. Juanito grows up with his grandfather who used to tell stories to Juanito about his heritage and roots. As Juanito grows up to be a teen, he stops believing his grandfather about those stories. At the age of 16, Juanito has an internal conflict of who he is. Juan (the grandfather) falls ill and asks Juanito to help him. As Juanito tries to help his grandfather, his grandfather leaves mysteriously. Juanito then decides to follow him and loses him in the forest. Juanito falls and faints in the forest; this is where he discovers a power that his grandfather once told him as story/fable.", "The look and feel of the Juanito el Nahualito is a reference to wood carving that tells a story and Mesoamerican oral tradition of storytelling. Magical Realism is applied to tell a coming-of-age story.", "In Mesoamerican cultures like Aztecs, Mayans, Zapotecs, and Mixtecs, the shaman or priest was known as the nahual. According to tradition, the nahuales could transform into animals and penetrate with their soul the body of an animal or natural phenomena. By adopting these appearances, these nahuales performed their prodigious actions. The nahual is the animal that gives us its characteristics soon after our birth. It is told that we all are born with a nahual, which is the animal that is born at the same time as we are."];
@@ -7,6 +45,18 @@ const ACT_1_SCREENSHOTS = 7;
 const ACT_2_SCREENSHOTS = 7;
 const ACT_3_SCREENSHOTS = 5;
 const IMAGE_ROTATION_TIMER = 2500;
+
+const SML_ACT = [
+	[sml_act1_1, sml_act1_2, sml_act1_3, sml_act1_4, sml_act1_5, sml_act1_6, sml_act1_7],
+	[sml_act2_1, sml_act2_2, sml_act2_3, sml_act2_4, sml_act2_5, sml_act2_6, sml_act2_7],
+	[sml_act3_1, sml_act3_2, sml_act3_3, sml_act3_4, sml_act3_5]
+];
+const LRG_ACT = [
+	[lrg_act1_1, lrg_act1_2, lrg_act1_3, lrg_act1_4, lrg_act1_5, lrg_act1_6, lrg_act1_7],
+	[lrg_act2_1, lrg_act2_2, lrg_act2_3, lrg_act2_4, lrg_act2_5, lrg_act2_6, lrg_act2_7],
+	[lrg_act3_1, lrg_act3_2, lrg_act3_3, lrg_act3_4, lrg_act3_5]
+];
+
 
 export default class Juanito extends Component {
 	constructor(props) {
@@ -184,8 +234,7 @@ export default class Juanito extends Component {
 						</div>
 						<div className='screenshots'>
 							<div className="screenshot-cntr">
-								<img src={"res/screenshots/sml/act" + (this.state.act + 1)
-									+ "_" + (this.state.currScreenshot + 1) + ".png"}
+								<img src={SML_ACT[this.state.act][this.state.currScreenshot]}
 									onClick={this.openLightbox} />
 							</div>
 						</div>
@@ -212,8 +261,7 @@ export default class Juanito extends Component {
 					<div className={"modal-cntr" + ((this.state.isLightboxOpen)? "": " hidden")}>
 						<div className="modal-background" onClick={this.closeLightbox} />
 						<div className="lightbox">
-							{(this.state.isLightboxOpen)? (<img src={"res/screenshots/lrg/act" + (this.state.act + 1)
-									+ "_" + (this.state.currScreenshot + 1) + ".png"}
+							{(this.state.isLightboxOpen)? (<img src={LRG_ACT[this.state.act][this.state.currScreenshot]}
 								onClick={this.screenshotForward} />): ""}
 							<div className="close-lightbox" onClick={this.closeLightbox} />
 						</div>
