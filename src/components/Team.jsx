@@ -76,12 +76,9 @@ export default class Team extends Component {
 		for (let i = 0; i < members.length; ++i) {
 			let member = members[i];
 			let img = (member.img != null)? member.img: "placeholder"
-			let style = {
-				backgroundImage: "url('./res/team/photo/" + img + ".png')"
-			}
 			team.push(
 				<div className="member">
-					<div style={style} className="avatar" />
+					<div className="avatar" />
 					<h3>{member.name}</h3>
 					<h4>{member.role}</h4>
 				</div>

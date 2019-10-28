@@ -9,7 +9,7 @@
 			margin-left: calc(50% - 155px);
 			width: 310px;
 			height: 163px;
-			background-image: url("../res/logo/juanito-logo-white.png");
+			background-image: url("./res/logo/juanito-logo-white.png");
 			background-size: cover;
 			margin-bottom: 10px;
 		}
@@ -183,10 +183,10 @@
 				user-select: none;
 			}
 			
-			.facebook {background-image: url("../res/icons/facebook.png");}
-			.tumblr   {background-image: url("../res/icons/tumblr.png");}
-			.twitter  {background-image: url("../res/icons/twitter.png");}
-			.youtube  {background-image: url("../res/icons/youtube.png");}
+			.facebook {background-image: url("./res/icons/facebook.png");}
+			.tumblr   {background-image: url("./res/icons/tumblr.png");}
+			.twitter  {background-image: url("./res/icons/twitter.png");}
+			.youtube  {background-image: url("./res/icons/youtube.png");}
 			
 			.media-ico {
 				height: 32px;
