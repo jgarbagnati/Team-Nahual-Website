@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Configs
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
+   favicon: 'src/res/favicon.ico',
    template: __dirname + '/src/index.html',
    filename: 'index.html',
    inject: 'body'
